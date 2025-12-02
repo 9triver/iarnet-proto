@@ -1,0 +1,16 @@
+# 生成的文件（不应提交到仓库）
+*.pb.go
+*_pb2.py
+*_pb2.pyi
+*_pb2_grpc.py
+
+# 临时文件
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
