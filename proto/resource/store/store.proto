@@ -1,5 +1,5 @@
 syntax = "proto3";
-package store;
+package resource.store;
 option go_package = "github.com/9triver/iarnet/internal/proto/resource/store";
 
 import "common/types.proto";

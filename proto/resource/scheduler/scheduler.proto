@@ -1,6 +1,6 @@
 syntax = "proto3";
-package scheduler;
-option go_package = "github.com/9triver/iarnet-global/internal/proto/scheduler";
+package resource.scheduler;
+option go_package = "github.com/9triver/iarnet/internal/proto/resource/scheduler";
 
 import "resource/resource.proto";
 

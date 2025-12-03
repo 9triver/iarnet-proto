@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package discovery;
+package resource.discovery;
 
 option go_package = "github.com/9triver/iarnet/internal/proto/resource/discovery";
 
