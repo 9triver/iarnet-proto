@@ -83,8 +83,10 @@ message HealthCheckRequest {
     ResourceTags resource_tags = 5;        // 资源标签
     string address = 6;                    // 节点地址 (host:port)
     int64 timestamp = 7;                   // 时间戳 (Unix nanoseconds)
-    bool is_head = 8;                      // 是否为 head 节点
+    bool is_head = 8;                      // 是否为 head 节点（已废弃，保留兼容）
     repeated ProviderInfo providers = 9;   // 本地 Provider 信息列表
+    string node_name = 10;                 // 节点名称
+    string node_description = 11;          // 节点描述
 }
 
 // HealthCheckResponse 健康检查响应
