@@ -52,6 +52,26 @@ enum NodeStatus {
     NODE_STATUS_ERROR = 3;    // 错误
 }
 
+// ==================== Provider 信息相关 ====================
+
+// ProviderStatus Provider 状态
+enum ProviderStatus {
+    PROVIDER_STATUS_UNKNOWN = 0;   // 未知状态
+    PROVIDER_STATUS_RUNNING = 1;   // 运行中
+    PROVIDER_STATUS_STOPPED = 2;   // 已停止
+    PROVIDER_STATUS_ERROR = 3;     // 错误
+}
+
+// ProviderInfo Provider 信息
+message ProviderInfo {
+    string id = 1;                  // Provider ID
+    string name = 2;                // Provider 名称
+    string type = 3;                // Provider 类型 (compute/storage/gpu/network/cloud 等)
+    ProviderStatus status = 4;      // Provider 状态
+    string version = 5;             // Provider 版本
+    map<string, string> metadata = 6; // 额外元数据
+}
+
 // ==================== 健康检查相关 ====================
 
 // HealthCheckRequest 健康检查请求
@@ -64,6 +84,7 @@ message HealthCheckRequest {
     string address = 6;                    // 节点地址 (host:port)
     int64 timestamp = 7;                   // 时间戳 (Unix nanoseconds)
     bool is_head = 8;                      // 是否为 head 节点
+    repeated ProviderInfo providers = 9;   // 本地 Provider 信息列表
 }
 
 // HealthCheckResponse 健康检查响应
