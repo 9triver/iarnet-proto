@@ -46,6 +46,15 @@ message DeployResponse {
   string error = 1;
 }
 
+message UndeployRequest {
+  string instance_id = 1;
+  string provider_id = 2; // 可选的 provider_id，用于鉴权
+}
+
+message UndeployResponse {
+  string error = 1;
+}
+
 message HealthCheckRequest {
   string provider_id = 1; // 可选的 provider_id，用于鉴权
 }
@@ -84,6 +93,7 @@ service Service {
   rpc GetCapacity(GetCapacityRequest) returns (GetCapacityResponse);
   rpc GetAvailable(GetAvailableRequest) returns (GetAvailableResponse);
   rpc Deploy(DeployRequest) returns (DeployResponse);
+  rpc Undeploy(UndeployRequest) returns (UndeployResponse);
   rpc HealthCheck(HealthCheckRequest) returns (HealthCheckResponse);
   rpc GetRealTimeUsage(GetRealTimeUsageRequest) returns (GetRealTimeUsageResponse);
 }
