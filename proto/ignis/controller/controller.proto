@@ -78,7 +78,7 @@ message AppendGo {
   string Name = 1; // function name
   repeated string Params = 2; // function params
   string Code = 3;
-  proto.Language Language = 4; // return type of function
+  common.Language Language = 4; // return type of function
   Resources Resources = 5; // resources required by class
   int32 Replicas = 6;
 }
@@ -87,7 +87,7 @@ message AppendUnikernel {
   string Name = 1; // function name
   repeated string Params = 2; // function params
   string Unikernel = 3; // content of unikernel.ml
-  proto.Language Language = 4; // return type of function
+  common.Language Language = 4; // return type of function
   Resources Resources = 5; // resources required by class
   int32 Replicas = 6;
 }
