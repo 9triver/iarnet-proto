@@ -44,9 +44,17 @@ message SaveStreamChunkRequest {
 message SaveStreamChunkResponse {
 }
 
+message GetIDRequest {
+}
+
+message GetIDResponse {
+  string ID = 1;
+}
+
 service Service {
   rpc SaveObject(SaveObjectRequest) returns (SaveObjectResponse);
   rpc SaveStreamChunk(SaveStreamChunkRequest) returns (SaveStreamChunkResponse);
   rpc GetObject(GetObjectRequest) returns (GetObjectResponse);
   rpc GetStreamChunk(GetStreamChunkRequest) returns (GetStreamChunkResponse);
+  rpc GetID(GetIDRequest) returns (GetIDResponse);
 }
