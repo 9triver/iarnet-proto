@@ -24,6 +24,10 @@ service SchedulerService {
   // ListProviders 获取当前节点的所有 Provider 列表及其资源信息
   // 用于无自主调度能力的场景：调用方可以根据 Provider 列表在本地进行调度决策
   rpc ListProviders(ListProvidersRequest) returns (ListProvidersResponse);
+
+  // UndeployComponent 移除 component
+  // 用于跨节点场景：由远程 iarnet 节点调用，移除其管理的 component
+  rpc UndeployComponent(UndeployComponentRequest) returns (UndeployComponentResponse);
 }
 
 // DeployComponentRequest 部署 component 请求
@@ -204,6 +208,24 @@ message ResourceTags {
   bool gpu = 2;
   bool memory = 3;
   bool camera = 4;
+}
+
+// UndeployComponentRequest 移除 component 请求
+message UndeployComponentRequest {
+  // Component ID
+  string component_id = 1;
+  
+  // Provider ID（可选，如果提供则直接使用，否则从 component 信息中查找）
+  string provider_id = 2;
+}
+
+// UndeployComponentResponse 移除 component 响应
+message UndeployComponentResponse {
+  // 是否成功
+  bool success = 1;
+  
+  // 错误信息（如果失败）
+  string error = 2;
 }
 
 // ComponentStatus Component 状态
